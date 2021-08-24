@@ -1,0 +1,254 @@
+<html lang="pt-br">
+    <head>
+        <title>Site do pudim</title>
+        <style>
+            body {
+                background: radial-gradient(blue, blueviolet 50%);
+                color: black;
+                padding: 0;
+                margin: 0;
+                padding-top: 100px;
+            }
+            h1 {
+                font-family: sans-serif;
+                font-size: 24px;
+                color: #d19fff;
+                margin: 0;
+            }
+            #pudim {
+                height: 200px;
+                border-radius: 10px;
+            }
+            /* .grande {
+                height: 100px;
+                border-radius: 10px;
+            } */
+            div p .grande {
+                height: 24px;
+            }
+            div span .grande {
+                height: 12px;
+            }
+            table {
+                background-color: blueviolet;
+            }
+            table tr:nth-child(even) {
+                background-color: blue;
+            }
+            table tr:nth-child(even):hover {
+                background-color: #3387b8;
+            }
+            table tr:nth-child(odd):hover {
+                background-color: #5f0068;
+            }
+            button {
+                color: white;
+                font-size: 24px;
+                background-color: #811f1f;
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+                box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
+                height: 40px;
+                transition: background-color .2s ease-in,
+                height .2s,
+                border-bottom-right-radius .2s,
+                border-bottom-left-radius 1s,
+                box-shadow 2s,
+                opacity .5s,
+                transform .1s;
+            }
+            button:hover {
+                background-color: #b83333;
+                /* transition: background-color 1s ease-in; */
+                height: 50px;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                box-shadow: 100px 125px 10px rgba(0, 0, 0, 0.5);
+                /* transform: rotate(360deg); */
+                /* transform: rotate3d(.5,.5,1,30deg); */
+                transform: translateY(-2000px);
+            }
+            button:active {
+                background-color: #441515;
+                /* transition: background-color 1s ease-in; */
+                box-shadow: 100px 125px 10px rgba(233, 0, 0, 0.5);
+                opacity: 0;
+            }
+            /* Stilos para o layout da pagina */
+            /*
+            .container {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                row-gap: 20px;
+                column-gap: 50px;
+                justify-content: center;
+                align-items: flex-end;
+            }
+            .container div {
+                width: 400px;
+                border: solid 1px black;
+                border-radius: 10px;
+            }
+            */
+            .container {
+                width: 80%;
+                margin: 0 auto;
+            }
+            .info {
+                border: solid 1px rgb(4, 7, 170);
+                background-color: rgb(188, 189, 255);
+                color: rgb(15, 4, 170);
+            }
+            .error {
+                border: solid 1px rgb(170, 4, 4);
+                background-color: rgb(255, 188, 188);
+                color: rgb(170, 4, 4);
+            }
+            .warning {
+                border: solid 1px rgb(170, 170, 4);
+                background-color: rgb(255, 255, 188);
+                color: rgb(170, 170, 4);
+            }
+            .header {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                column-gap: 10px;
+                justify-content: center;
+                background-color: rgb(65, 2, 65);
+                position: fixed;
+                top: 0;
+                padding: 25px 0;
+            }
+            /* .header > div {
+                flex-grow: 1;
+                text-align: center;
+            } */
+            #logo img {
+                height: 50px;
+                border-radius: 10px;
+            }
+            .banner {
+                height: 400px;
+                background-image: url(https://ak.picdn.net/shutterstock/videos/9243677/thumb/1.jpg);
+                background-repeat: no-repeat;
+                background-size: cover; /*ou contain*/
+                background-position: top right;
+            }
+            p {
+                font-size: 14px;
+                line-height: 30px;
+                color: #fff;
+            }
+            p .icon {
+                height: 20px;
+            }
+            .bottom {
+                display: flex;
+                flex-direction: row;
+            }
+            .bottom > .item {
+                /* Regra para afetar os filhos de .bottom */
+                flex-grow: 1;
+
+                /* afeta o conteudo da div */
+                display: flex;
+                
+                justify-content: center;
+                align-items: center;
+                border: 1px black solid;
+                flex-basis: 0;
+                background-color: rgba(0, 0, 0, 0.3)
+            }
+            .bottom .left table {
+                flex-grow: 1;
+            }
+            .footer {
+                background-color: rgb(231, 0, 89);
+                height: 40px;
+            }
+        </style>
+    </head>
+    <body>
+<!--
+    --------------------------------
+    | @ Titulo da paginba do pudim |
+    --------------------------------
+    --------------------------------
+    --------------------------------
+    |   @@@@@@@@@@@@@@@@@@@@@@     |
+    |   @@@@@@@@@@@@@@@@@@@@@@     |
+    |   @@@@@@@@@@@@@@@@@@@@@@     |
+    --------------------------------
+    | Loren Ipsun @ .              |
+    --------------------------------
+    | [Tabelinha]    |             |
+    | [Tabelinha]    | Clique Aqui |
+    | [Tabelinha]    |             |
+    --------------------------------
+    --------------------------------
+-->
+
+        <div class="header">
+            <div id="logo">
+                <img src="https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png" />
+            </div>
+            <div>
+                <h1>Titulo da pagina do pudim</h1>
+            </div>
+        </div>
+        <div class="info">
+            Informação: Isso ae corrigiu a kcta toda
+        </div>
+        <div class="error">
+            Cuidado: vc precisa ativar os cookies para usar este site!
+        </div>
+        <div class="warning">
+            Cuidado: vc precisa ativar os cookies para usar este site!
+        </div>
+        <div class="container">
+            <div class="banner">
+            </div>
+            <div class="main-text">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet justo donec enim diam. Lacus vestibulum sed arcu non odio euismod lacinia at quis. Pellentesque id nibh tortor id aliquet lectus. Felis eget velit aliquet sagittis. Eget nullam non nisi est sit amet facilisis. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Id semper risus in hendrerit gravida. Integer quis auctor elit sed vulputate mi sit amet. Morbi tincidunt ornare massa eget egestas purus viverra. Quam elementum pulvinar etiam non quam.
+
+                    Aliquam malesuada bibendum arcu vitae elementum. Massa tincidunt dui ut ornare lectus sit amet. Aliquet nibh praesent tristique magna. Mollis aliquam ut porttitor leo a diam sollicitudin. Sed nisi lacus sed viverra tellus in hac habitasse. Libero justo laoreet sit amet cursus sit amet dictum. Sed nisi lacus sed viverra tellus. Aliquam vestibulum morbi blandit cursus risus at. Netus et malesuada fames ac turpis egestas maecenas pharetra. Penatibus et magnis dis parturient montes nascetur ridiculus. Sem viverra aliquet eget sit amet. Adipiscing enim eu turpis egestas pretium aenean pharetra. Vulputate dignissim suspendisse in est ante in nibh mauris. Ultrices sagittis orci a scelerisque purus semper. Enim praesent elementum facilisis leo vel fringilla est ullamcorper eget. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas.
+
+                    Vitae congue eu consequat ac felis donec. Blandit turpis cursus in hac habitasse platea. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Facilisis sed odio morbi quis commodo odio aenean sed. Egestas dui id ornare arcu odio ut. Morbi tincidunt ornare massa eget egestas purus viverra. Diam quam nulla porttitor massa id neque aliquam vestibulum morbi. Ullamcorper sit amet risus nullam eget felis eget nunc lobortis. Tellus orci ac auctor augue mauris augue neque gravida. Et pharetra pharetra massa massa ultricies mi quis. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Massa placerat duis ultricies lacus sed turpis tincidunt id aliquet. Id porta nibh venenatis cras sed. Nec ullamcorper sit amet risus nullam eget felis eget.
+
+                    Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Morbi enim nunc faucibus a pellentesque sit amet porttitor. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. In hendrerit gravida rutrum quisque non tellus. Senectus et netus et malesuada fames ac turpis egestas sed. Leo a diam sollicitudin tempor. Ut enim blandit volutpat maecenas. Mi bibendum neque egestas congue quisque egestas. Metus dictum at tempor commodo. Dignissim diam quis enim lobortis. Facilisis leo vel fringilla est ullamcorper eget.
+
+                    Id venenatis a condimentum vitae sapien pellentesque. Vitae nunc sed velit dignissim sodales ut eu. Morbi leo urna molestie at elementum eu facilisis. Dolor morbi non arcu risus quis. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Natoque penatibus et magnis dis. Dolor sit amet consectetur adipiscing elit duis. Mattis ullamcorper velit sed ullamcorper morbi. Faucibus interdum posuere lorem ipsum dolor sit amet. Orci nulla pellentesque dignissim enim sit. Mi eget mauris pharetra et ultrices neque ornare aenean euismod. Amet justo donec enim diam vulputate ut pharetra sit amet. A diam sollicitudin tempor id.
+                    <img src="https://assets.stickpng.com/images/586294223796e30ac446872f.png" class="icon" />
+                </p>
+            </div>
+            <div class="bottom">
+                <div class="item left">
+                    <table>
+                        <tr>
+                            <td>1</td><td>Gabriel</td>
+                        </tr>
+                        <tr>
+                            <td>2</td><td>Arthur</td>
+                        </tr>
+                        <tr>
+                            <td>3</td><td>Angelita</td>
+                        </tr>
+                        <tr>
+                            <td>4</td><td>Daniel</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="item right">
+                    <div><button>Clique aqui!</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright by @Apple
+        </div>
+    </body>
+</html>
