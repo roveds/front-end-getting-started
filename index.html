@@ -27,7 +27,7 @@
             table tr:nth-child(odd):hover {
                 background-color: #5f0068;
             }
-            button {
+            .button {
                 color: white;
                 font-size: 24px;
                 background-color: #811f1f;
@@ -43,7 +43,7 @@
                 opacity .5s,
                 transform .1s;
             }
-            button:hover {
+            .button:hover {
                 background-color: #b83333;
                 /* transition: background-color 1s ease-in; */
                 height: 50px;
@@ -54,7 +54,7 @@
                 /* transform: rotate3d(.5,.5,1,30deg); */
                 transform: translateY(-2000px);
             }
-            button:active {
+            .button:active {
                 background-color: #441515;
                 /* transition: background-color 1s ease-in; */
                 box-shadow: 100px 125px 10px rgba(233, 0, 0, 0.5);
@@ -151,6 +151,23 @@
                 background-color: rgb(231, 0, 89);
                 height: 40px;
             }
+            #aviso {
+                top: 0;
+                left: 0;
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 1;
+            }
+            #aviso > div {
+                background-color: #fff;
+                width: 300px;
+                height: 150px;
+            }
         </style>
     </head>
     <body>
@@ -173,6 +190,15 @@
     --------------------------------
 -->
 
+        <div id="aviso">
+            <div>
+                Preste atenção antes de sair clicando nas coisas!
+                Aguarde 10 segundo ou <button href='#' onclick="fechaAlerta()" disabled>clique aqui</button> para fechar esta mensagem.
+                <br/>
+                Ou escreva sair para fechar!
+                <input oninput="fechaAlertaPeloTexto()">
+            </div>
+        </div>
         <div class="header">
             <div id="logo">
                 <img src="images/logo.png" />
@@ -194,6 +220,7 @@
             <div class="banner">
             </div>
             <div class="main-text">
+                <a href="calculator/index.html">Clique aqui para ir até a calculadora.</a>
                 <p>
                     Lorem ipsum dolor sit herps, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet justo donec enim diam. Lacus vestibulum sed arcu non odio euismod lacinia at quis. Pellentesque id nibh tortor id aliquet lectus. Felis eget velit aliquet sagittis. Eget nullam non nisi est sit amet facilisis. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Id semper risus in hendrerit gravida. Integer quis auctor elit sed vulputate mi sit amet. Morbi tincidunt ornare massa eget egestas purus viverra. Quam elementum pulvinar etiam non quam.
 
@@ -209,7 +236,7 @@
                     <img src="images/risada.png" class="icon" />
                 </p>
             </div>
-            <div class="bottom">
+            <div class="bottom" id="bottom">
                 <div class="item left">
                     <table>
                         <tr>
@@ -227,12 +254,52 @@
                     </table>
                 </div>
                 <div class="item right">
-                    <div><button>Clique aqui!</button></div>
+                    <div><button class="button">Clique aqui!</button></div>
                 </div>
             </div>
         </div>
         <div class="footer">
             Copyright by @Apple
         </div>
+        
+        <script>
+            var nome = "arthur";
+            var taCarregando = true;
+            
+            var divDeAviso = window.document.getElementById("aviso");
+
+            function fechaAlerta() {
+                divDeAviso.style.display = 'none';
+            }
+
+            function fechaAlertaPeloTexto() {
+                var inputs = divDeAviso.getElementsByTagName('input');
+                var inputCerto = inputs[0];
+
+                if (inputCerto.value == 'sair') {
+                    fechaAlerta();
+                }
+            }
+            
+            function chamaFunctionEm3Segundos(funcaoQueSeraChamada) {
+                setTimeout(funcaoQueSeraChamada, 3000);
+            }
+
+            function executaAlgo() {
+                var buttons = divDeAviso.getElementsByTagName('button');
+                var botaoQueFecha = buttons[0];
+                botaoQueFecha.removeAttribute('disabled');
+            }
+
+            chamaFunctionEm3Segundos(() => {
+                var buttons = divDeAviso.getElementsByTagName('button');
+                var botaoQueFecha = buttons[0];
+                botaoQueFecha.removeAttribute('disabled');
+            });
+
+            setTimeout(function() {
+                divDeAviso.style.display = 'none';
+            }, 10000);
+        </script>
     </body>
 </html>
