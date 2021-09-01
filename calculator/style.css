@@ -23,9 +23,11 @@ h1 {
     width: 100%;
     text-align: right;
     height: 110px;
+    font-family: 'Bebas Neue';
     border-radius: 10px 10px 0 0;
     background-color: #333;
     color: #fff;
+    border-color: none;
 }
 .botoes {
     display: grid;
