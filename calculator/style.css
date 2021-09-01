@@ -24,6 +24,8 @@ h1 {
     text-align: right;
     height: 110px;
     border-radius: 10px 10px 0 0;
+    background-color: #333;
+    color: #fff;
 }
 .botoes {
     display: grid;
