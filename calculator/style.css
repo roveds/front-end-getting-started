@@ -40,6 +40,7 @@ h1 {
 .botoes button {
     background-color: #333;
     color: #fff;
+    font-size: 50px;
 }
 .botoes button:hover {
     background-color: #222;
