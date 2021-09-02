@@ -23,7 +23,9 @@ h1 {
     width: 100%;
     text-align: right;
     height: 110px;
+    padding: 0 20px 0 20px;
     font-family: 'Bebas Neue';
+    font-size: 80px;
     border-radius: 10px 10px 0 0;
     background-color: #333;
     color: #fff;
@@ -34,4 +36,14 @@ h1 {
     flex-grow: 1;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
+}
+.botoes button {
+    background-color: #333;
+    color: #fff;
+}
+.botoes button:hover {
+    background-color: #333;
+}
+.botoes button:active {
+    background-color: #222;
 }
