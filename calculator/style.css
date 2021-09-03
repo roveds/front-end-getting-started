@@ -58,6 +58,9 @@ h1 {
 .botoes button:last-child:hover {
     background-color: rgb(71, 0, 36);
 }
+.botoes button:last-child:hover {
+    background-color: rgb(49, 0, 25);
+}
 .botoes button:hover {
     background-color: #222;
 }
