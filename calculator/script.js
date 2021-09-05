@@ -1,5 +1,18 @@
+var campo = document.getElementsByClassName('campo')[0];
+var historico = document.getElementsByClassName('historico')[0];
+var subTotal = 0;
+var operador = undefined;
 
-var campo = document.getElementsByClassName('campo')[0]
+function atualizaHistorico() {
+    historico.innerHTML = subTotal;
+}
+
+function limpaCampo() {
+    campo.value = '0';
+    subTotal = 0;
+    operador = undefined;
+    atualizaHistorico();
+}
 
 function digitaNumero(numero) {
     if (campo.value == '0') {
@@ -9,27 +22,60 @@ function digitaNumero(numero) {
     }
 }
 
-function limpaCampo() {
-    campo.value = '0';
-}
-
 function adicionaPonto() {
-    // se não tiver ponto, adicionar ponto
-    // se já tiver ponto, não adicionar ponto
-    
-    if (campo.value.includes('.')) {
-        // faça nada
-        console.log('if')
-    } else {
+    if (!campo.value.includes('.')) {
         campo.value = campo.value + '.';
-        console.log('else')
     }
 }
 
-// console.log(campo.value)
+function mudaSinal() {
+    campo.value = campo.value * -1;
+}
 
-// campo.style.backgroundColor = '#fff';
+function mostraResultado() {
+    if (operador == '+') {
+        campo.value = subTotal + parseInt(campo.value);
+    } else if (operador == '-') {
+        campo.value = subTotal - parseInt(campo.value);
+    } else if (operador == '/') {
+        campo.value = subTotal / parseInt(campo.value);
+    } else if (operador == '*') {
+        campo.value = subTotal * parseInt(campo.value);
+    }
+}
 
-// campo.value = 5;
+function subtracao() {
+    mostraResultado();
+    subTotal = parseInt(campo.value);
+    atualizaHistorico();
+    operador = '-';
+    campo.value = '0';
+}
 
-// console.log(campo.value)
+function soma() {
+    mostraResultado();
+    subTotal = parseInt(campo.value);
+    atualizaHistorico();
+    operador = '+';
+    campo.value = '0';
+}
+
+function divisao() {
+    mostraResultado();
+    subTotal = parseInt(campo.value);
+    atualizaHistorico();
+    operador = '/';
+    campo.value = '0';
+}
+
+function multiplicacao() {
+    mostraResultado();
+    subTotal = parseInt(campo.value);
+    atualizaHistorico();
+    operador = '*';
+    campo.value = '0';
+}
+
+function aoQuadrado () {
+    campo.value = Math.pow(campo.value, 2);
+}

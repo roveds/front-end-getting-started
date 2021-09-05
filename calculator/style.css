@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+*{
+    font-family: inherit;
+}
 body {
     padding-top: 50px;
     background-color: #333;
@@ -18,13 +22,19 @@ h1 {
     border: solid 1px #000;
     margin: 0 auto;
     border-radius: 10px;
+    font-family: 'Share Tech Mono';
 }
-.campo{
-    width: 100%;
+.historico {
+    height: 20px;
     text-align: right;
+    padding: 10px 10px 0 0;
+    font-size: 20px;
+    color: #fff;
+}
+.campo {
     height: 110px;
-    padding: 0 20px;
-    font-family: 'Bebas Neue';
+    text-align: right;
+    padding: 0 10px;
     font-size: 80px;
     border-radius: 10px 10px 0 0;
     background-color: transparent;

@@ -6,28 +6,29 @@
     <body>
         <h1>Calculadora</h1>
         <div class="calculadora">
+            <div class="historico"></div>
             <input class="campo" value="0" />
             <div class="botoes">
                 <button onclick="limpaCampo()">C</button>
-                <button>x²</button>
+                <button onclick="aoQuadrado()">x²</button>
                 <button>%</button>
-                <button>&div;</button>
+                <button onclick="divisao()">&div;</button>
                 <button onclick="digitaNumero('7')">7</button>
                 <button onclick="digitaNumero('8')">8</button>
                 <button onclick="digitaNumero('9')">9</button>
-                <button>x</button>
+                <button onclick="multiplicacao()">&times;</button>
                 <button onclick="digitaNumero('4')">4</button>
                 <button onclick="digitaNumero('5')">5</button>
                 <button onclick="digitaNumero('6')">6</button>
-                <button>-</button>
+                <button onclick="subtracao()">-</button>
                 <button onclick="digitaNumero('1')">1</button>
                 <button onclick="digitaNumero('2')">2</button>
                 <button onclick="digitaNumero('3')">3</button>
-                <button>+</button>
-                <button>+/-</button>
+                <button onclick="soma()">+</button>
+                <button onclick="mudaSinal()">+/-</button>
                 <button onclick="digitaNumero('0')">0</button>
                 <button onclick="adicionaPonto()">.</button>
-                <button>=</button>
+                <button onclick="mostraResultado()">=</button>
             </div>
         </div>
         <script src="script.js"></script>
