@@ -84,6 +84,7 @@ function porcentagem() {
     subTotal = parseInt(campo.value);
     atualizaHistorico();
     operador = '%';
+    campo.value = '0';
 }
 
 function aoQuadrado() {
