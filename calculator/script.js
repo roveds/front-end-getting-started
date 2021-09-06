@@ -2,6 +2,7 @@ var campo = document.getElementsByClassName('campo')[0];
 var historico = document.getElementsByClassName('historico')[0];
 var subTotal = 0;
 var operador = undefined;
+var percentual = undefined;
 
 function atualizaHistorico() {
     historico.innerHTML = subTotal;
@@ -41,6 +42,8 @@ function mostraResultado() {
         campo.value = subTotal / parseInt(campo.value);
     } else if (operador == '*') {
         campo.value = subTotal * parseInt(campo.value);
+    } else if(operador == '%') {
+        campo.value = (campo.value / 100) * subTotal; 
     }
 }
 
@@ -76,6 +79,13 @@ function multiplicacao() {
     campo.value = '0';
 }
 
-function aoQuadrado () {
+function porcentagem() {
+    mostraResultado();
+    subTotal = parseInt(campo.value);
+    atualizaHistorico();
+    operador = '%';
+}
+
+function aoQuadrado() {
     campo.value = Math.pow(campo.value, 2);
 }
