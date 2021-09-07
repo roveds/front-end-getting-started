@@ -1,0 +1,25 @@
+.content {
+    margin: 0 auto;
+    width: 400px;
+}
+.form_group {
+    margin-bottom: 10px;
+}
+.form_group label {
+    width: 100px;
+    display: inline-block;
+}
+.form_action {
+    text-align: right;
+    margin-bottom: 20px;
+}
+.edit_icon {
+    width: 18px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid #333;
+}
