@@ -15,6 +15,15 @@ function limpaCampo() {
     atualizaHistorico();
 }
 
+function insereNumero(event) {
+    // if (!['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(event.key)) {
+    //     event.preventDefault();
+    // }
+    if (!event.key.match(/\d/g)) {
+        event.preventDefault();
+    }
+}
+
 function digitaNumero(numero) {
     if (campo.value == '0') {
         campo.value = numero;
@@ -43,7 +52,7 @@ function mostraResultado() {
     } else if (operador == '*') {
         campo.value = subTotal * parseInt(campo.value);
     } else if(operador == '%') {
-        campo.value = (campo.value / 100) * subTotal; 
+        campo.value = (campo.value / 100) * subTotal;
     }
 }
 

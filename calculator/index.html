@@ -7,7 +7,7 @@
         <h1>Calculadora</h1>
         <div class="calculadora">
             <div class="historico"></div>
-            <input class="campo" value="0" />
+            <input onkeypress="insereNumero(event)" class="campo" value="0" />
             <div class="botoes">
                 <button onclick="limpaCampo()">C</button>
                 <button onclick="aoQuadrado()">x²</button>
