@@ -16,6 +16,22 @@
 .edit_icon {
     width: 18px;
 }
+.icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: black;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+.icon:hover, .icon:focus {
+    background: red;
+}
+.delete_icon {
+    
+    -webkit-mask: url(images/bin_icon.svg);
+    mask: url(images/bin_icon.svg);
+}
 table {
     border-collapse: collapse;
     width: 100%;

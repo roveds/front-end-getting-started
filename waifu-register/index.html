@@ -7,44 +7,39 @@
     <body>
         <div class="content">
             <h1>Registrar Anime</h1>
-            <form>
+            <form onsubmit="submitAnime(event)">
                 <div class="form_group">
-                    <label for="name_field">Nome</label>
-                    <input id="name_field"/>
+                    <label for="name_field">Nome*</label>
+                    <input name="name" id="name_field"/>
                 </div>
                 <div class="form_group">
-                    <label for="year_field">Ano</label>
-                    <input id="year_field"/>
+                    <label for="year_field">Ano*</label>
+                    <input name="year" type="number" id="year_field"/>
                 </div>
                 <div class="form_group">
-                    <label>Categorias</label>
-                    <label><input type="checkbox" /> Aventura</label>
-                    <label><input type="checkbox" /> Romance</label>
-                    <label><input type="checkbox" /> Ação</label>
-                    <label><input type="checkbox" /> Comédia</label>
+                    <label>Categorias*</label>
+                    <label><input name="category" value="adventure" type="checkbox" /> Aventura</label>
+                    <label><input name="category" value="romance" type="checkbox" /> Romance</label>
+                    <label><input name="category" value="action" type="checkbox" /> Ação</label>
+                    <label><input name="category" value="comedy" type="checkbox" /> Comédia</label>
                 </div>
                 <div class="form_action">
                     <button type="submit">Salvar</button>
                 </div>
             </form>
-            <table>
-                <tr>
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Ano</th>
-                    <th>Categorias</th>
-                    <th>Ações</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Naruto</td>
-                    <td>2002</td>
-                    <td>Aventura, Ação</td>
-                    <td>
-                        <img class="edit_icon"src="images/pencil_icon.svg" />
-                        <img class="edit_icon" src="images/bin_icon.svg" />
-                    </td>
-                </tr>
+            <table id="anime_table">
+                <thead>
+                    <tr>
+                        <!-- <th>#</th> -->
+                        <th>Nome</th>
+                        <th>Ano</th>
+                        <th>Categorias</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     
+                </tbody>
             </table>
         </div>
         <script src="script.js" ></script>
