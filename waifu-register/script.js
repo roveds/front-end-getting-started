@@ -48,22 +48,96 @@ let animeList = [{
 }];
 let idSequence = animeList.length + 1;
 
+function clearForm() {
+    document.getElementsByName('id')[0].value = '';
+    document.getElementsByName('name')[0].value = '';
+    document.getElementsByName('year')[0].value = '';
+    Array.from(document.getElementsByName('category')).forEach((input) => input.checked = false);
+    // let categories = Array.from(document.getElementsByName('category'))
+    // for (let i = 0; i < categories.length; i++) {
+    //     categories[i].checked = false;
+    // }
+}
+
 function deleteRow(id) {
     // let i = animeList.findIndex((anime) => anime.id == id);
     // animeList.splice(i, 1);
 
-    for (let i = 0; i < animeList.length; i++) {
-        if (animeList[i].id == id) {
-            animeList.splice(i, 1);
-        }
-    }
+    // for (let i = 0; i < animeList.length; i++) {
+    //     if (animeList[i].id == id) {
+    //         animeList.splice(i, 1);
+    //     }
+    // }
+
+    animeList = animeList.filter((anime) => anime.id !== id);
+    
     // animeList.splice(index, 1);
     updateAnimeTable();
 }
 
-function submitAnime(e) {
-    e.preventDefault();
+function editRow(id) {
+    clearForm()
+    for (let i = 0; i < animeList.length; i++) {
+        let anime = animeList[i];
+        if (anime.id == id) {
+            let idInput = document.getElementsByName('id')[0];
+            let nameInput = document.getElementsByName('name')[0];
+            let yearInput = document.getElementsByName('year')[0];
+            let categoryInput = Array.from(document.getElementsByName('category'));
+            nameInput.value = anime.name;
+            yearInput.value = anime.year;
+            idInput.value = anime.id;
 
+            // for (let j = 0; j < categoryInput.length; j++) {
+            //     const input = categoryInput[j];
+            //     if (anime.category.includes(input.value)) {
+            //         input.checked = true;
+            //     }
+            // }
+            categoryInput
+                .filter((input) => anime.category.includes(input.value))
+                .forEach((input) => input.checked = true)
+        }
+    }
+}
+
+function submitEditAnime() {
+    let idInput = document.getElementsByName('id')[0];
+    let nameInput = document.getElementsByName('name')[0];
+    let yearInput = document.getElementsByName('year')[0];
+    let categoryInput = Array.from(document.getElementsByName('category'));
+    let categories = categoryInput
+        .filter((input) => input.checked)
+        .map ((input) => input.value);
+    let nameDuplicated = false;
+
+    animeList.forEach((anime) => {
+        if (nameInput.value.toUpperCase() == anime.name.toUpperCase() && idInput.value != anime.id) {
+            nameDuplicated = true;
+        }
+    });
+        
+    if (nameInput.value == '' || yearInput.value == '') {
+        alert('Preencha todos os campos!');
+    } else if (nameDuplicated) {
+        alert('Este anime já está cadastrado!');
+    } else if (parseInt(yearInput.value) == NaN
+        || parseInt(yearInput.value) < 1958
+        || parseInt(yearInput.value) > new Date().getFullYear() + 5
+    ) {
+        alert('Coloque um ano válido! O ano deve ser entre 1958 a ' + (new Date().getFullYear() + 5));
+    } else if (categories.length == 0) {
+        alert('Selecione ao menos uma categoria!');
+    } else {
+        let anime = animeList.find((anime) => anime.id == idInput.value);
+        anime.name = nameInput.value;
+        anime.year = parseInt(yearInput.value);
+        anime.category = categories;
+        clearForm();
+    }
+}
+
+function submitCreateAnime() {
     let nameInput = document.getElementsByName('name')[0];
     let yearInput = document.getElementsByName('year')[0];
     let categoryInput = Array.from(document.getElementsByName('category'));
@@ -81,17 +155,17 @@ function submitAnime(e) {
     //     .map((input) => input.value)
     
     let categories = categoryInput // [input, input, input, input]
-    .filter(function(input) {
-        return input.checked;
-    })
-    .map(function(input) {
-        return input.value;
-    })
+        .filter(function(input) {
+            return input.checked;
+        })
+        .map(function(input) {
+            return input.value;
+        })
 
     let nameDuplicated = false;
 
     animeList.forEach((anime) => { // passar por todos os itens da lista
-        if(nameInput.value == anime.name) {
+        if(nameInput.value.toUpperCase() == anime.name.toUpperCase()) {
             nameDuplicated = true
         }
     });
@@ -102,16 +176,15 @@ function submitAnime(e) {
 
     if(nameDuplicated) {
         alert('Este anime já está cadastrado!');
-        document.getElementsByTagName('label')[0].style.color='red';
-    } else if(parseInt(yearInput.value) == NaN
+    } else if (nameInput.value == '' || yearInput.value == '') {
+        alert('Preencha todos os campos!');
+    } else if (parseInt(yearInput.value) == NaN
         || parseInt(yearInput.value) < 1958
         || parseInt(yearInput.value) > new Date().getFullYear() + 5
     ) {
         alert('Coloque um ano válido! O ano deve ser entre 1958 a ' + (new Date().getFullYear() + 5));
-    } else if(categories.length == 0) {
+    } else if (categories.length == 0) {
         alert('Selecione ao menos uma categoria!');
-    } else if(nameInput.value == '' || yearInput.value == '') {
-        alert('Preencha todos os campos!');
     } else {
         let anime = {
             id: idSequence++,
@@ -121,10 +194,21 @@ function submitAnime(e) {
         }
 
         animeList.push(anime);
-        updateAnimeTable();
-
-        document.getElementsByTagName('label')[0].style.removeProperty('color');
+        clearForm();
     }
+
+}
+
+function submitAnime(e) {
+    let id = document.getElementsByName('id')[0];
+
+    e.preventDefault();
+    if (id.value == '') {
+        submitCreateAnime();
+    } else {
+        submitEditAnime();
+    }
+    updateAnimeTable()
 }
 
 function updateAnimeTable() {
@@ -142,8 +226,10 @@ function updateAnimeTable() {
         + '<td>' + anime.name + '</td>'
         + '<td>' + anime.year + '</td>'
         + '<td>' + anime.category + '</td>'
-        + '<td><img class="edit_icon"src="images/pencil_icon.svg" />'
-        + '<span class="icon delete_icon" onclick="deleteRow(' + anime.id + ')"></span></td>'
+        + '<td>'
+        + '<i class="icon edit_icon" onclick="editRow(' + anime.id + ')"/></i>'
+        + '<i class="icon delete_icon" onclick="deleteRow(' + anime.id + ')"></i>'
+        + '</td>'
         '</tr>';
 
         tableRowsHtml += row; 
@@ -153,14 +239,3 @@ function updateAnimeTable() {
 }
 
 updateAnimeTable();
-
-
-
-
-let lista = ['a', 'b', 'c', 'd']
-
-let valor = lista[2]
-
-for (let i = 0; i < lista.length; i++) {
-    let letra = lista[i]
-}

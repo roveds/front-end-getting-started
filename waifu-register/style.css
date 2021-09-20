@@ -13,24 +13,22 @@
     text-align: right;
     margin-bottom: 20px;
 }
-.edit_icon {
-    width: 18px;
-}
 .icon {
     display: inline-block;
-    width: 70px;
-    height: 70px;
-    background: black;
-    -webkit-mask-size: cover;
-    mask-size: cover;
+    height: 20px;
+    width: 17px;
 }
-.icon:hover, .icon:focus {
-    background: red;
+.edit_icon {
+    background-image: url(images/pencil_icon.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .delete_icon {
-    
-    -webkit-mask: url(images/bin_icon.svg);
-    mask: url(images/bin_icon.svg);
+    background-image: url(images/bin_icon.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 table {
     border-collapse: collapse;

@@ -8,6 +8,7 @@
         <div class="content">
             <h1>Registrar Anime</h1>
             <form onsubmit="submitAnime(event)">
+                <input type="hidden" name="id"/>
                 <div class="form_group">
                     <label for="name_field">Nome*</label>
                     <input name="name" id="name_field"/>
@@ -24,6 +25,7 @@
                     <label><input name="category" value="comedy" type="checkbox" /> Comédia</label>
                 </div>
                 <div class="form_action">
+                    <button type="button" onclick="clearForm()">Limpar</button>
                     <button type="submit">Salvar</button>
                 </div>
             </form>
